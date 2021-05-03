@@ -1,0 +1,41 @@
+<div class="card">
+  <div class="card-body">
+
+<div class="row" style="margin-left: 655px">
+  <small style="color: red" *ngIf="txValid()">Please enter translation</small>
+</div>
+    <form [formGroup]="additionFormGroup"  >
+      <div class="row mt-2">
+        <div class="col-6">
+          <input type="text" class="form-control" formControlName="addWord" placeholder="Type a word or phrase here">
+          <small style="color: red; margin-left: 5px" *ngIf="wordValid()">Please enter a word to add</small>
+          <div style="margin-top: 30px">
+            <div class="form-check form-check-inline">
+              <input class="form-check-input" formControlName="lang" type="radio"  id="inlineRadio1" [value]="'eng'">
+              <label class="form-check-label" for="inlineRadio1">English</label>
+            </div>
+            <div class="form-check form-check-inline">
+              <input class="form-check-input" formControlName="lang" type="radio"  id="inlineRadio2" [value]="'est'">
+              <label class="form-check-label" for="inlineRadio2">Estonian</label>
+            </div>
+          </div>
+        </div>
+        <div class="col-6" >
+          <span style="position: fixed"><button (click)="addField()" class="btn btn-success">+</button></span>
+          <span style="position: fixed; margin-left: 40px; margin-right: 10px"><button style="width: 36px" (click)="removeField()" class="btn btn-danger">-</button></span>
+          <div style="position:absolute; left: 20%; width: 75%; display: inline-block">
+          <div  formArrayName="translation">
+          <div *ngFor="let field of this.getFields().controls; let i=index" [formGroupName]="i">
+           <input formControlName="translation"  type="text" class="form-control"  placeholder="Translation">
+          </div>
+          </div>
+          </div>
+        </div>
+      </div>
+      <button (click)="onSubmit(); setTimer()"  class="btn btn-success m-3" type="submit">Add</button>
+    </form>
+    <div *ngIf="this.response.message === 'Success'&& this.timer" style="display: flex;justify-content: center" >
+      <p style="color: green">New word added!</p>
+    </div>
+  </div>
+</div>

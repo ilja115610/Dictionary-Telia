@@ -1,0 +1,4 @@
+ul:empty:after {
+  content: "Translations";
+  color: grey;
+}

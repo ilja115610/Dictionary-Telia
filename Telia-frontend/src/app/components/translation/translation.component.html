@@ -1,0 +1,41 @@
+<div class="card" >
+  <div class="card-body" >
+    <form [formGroup]="searchFormGroup" #form='ngForm' (ngSubmit)="onSubmit()">
+      <div formGroupName="inputs">
+      <div class="row">
+        <div class="col-6">
+          <input type="text" class="form-control" formControlName="searchWord" placeholder="Type a word or phrase here" aria-label="First name">
+          <small style="color: red" *ngIf="flag()">Please enter a word to translate</small>
+          <div style="margin-top: 30px">
+          <div class="form-check form-check-inline">
+            <input class="form-check-input" formControlName="lang" type="radio"  id="inlineRadio1" [value]="'eng'">
+            <label class="form-check-label" for="inlineRadio1">English</label>
+          </div>
+          <div class="form-check form-check-inline">
+            <input class="form-check-input" formControlName="lang" type="radio"  id="inlineRadio2" [value]="'est'">
+            <label class="form-check-label" for="inlineRadio2">Estonian</label>
+          </div>
+        </div>
+        </div>
+        <div class="col">
+        <div class="card" style="min-height: 150px">
+          <div class="card-body">
+            <ul *ngIf="results.length==0||results.length>0&&results[0].word===this.search; else elseBlock" class="list-group">
+              <li *ngFor="let res of results" class="list-group-item">{{res.translations}}</li>
+            </ul>
+            <ng-template #elseBlock>
+              <p style="color: green">Suggestions for "{{this.word.word}}" : </p>
+              <ul class="list-group">
+                <li *ngFor="let res of results" class="list-group-item">{{res.word +': '+ res.translations}}</li>
+              </ul>
+            </ng-template>
+          </div>
+        </div>
+        </div>
+      </div>
+      </div>
+      <br>
+      <button  type="submit" class="btn btn-primary">Search</button>
+    </form>
+  </div>
+</div>
