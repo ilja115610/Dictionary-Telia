@@ -31,6 +31,11 @@ public class EstonianWord {
     public EstonianWord() {
     }
 
+    public EstonianWord(String word, Set<EnglishWord> translations) {
+        this.word = word;
+        this.translations = translations;
+    }
+
     public String getWord() {
         return word;
     }
@@ -61,4 +66,6 @@ public class EstonianWord {
     public void setTranslations(Set<EnglishWord> translations) {
         this.translations = translations;
     }
+
+
 }

@@ -30,6 +30,11 @@ public class EnglishWord {
     public EnglishWord() {
     }
 
+    public EnglishWord(String word, Set<EstonianWord> translations) {
+        this.word = word;
+        this.translations = translations;
+    }
+
     @Transient
     public void addTranslations (EstonianWord word) {
 

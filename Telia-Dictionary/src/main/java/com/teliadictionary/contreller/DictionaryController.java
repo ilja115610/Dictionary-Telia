@@ -28,11 +28,6 @@ public class DictionaryController {
     @PostMapping("/eng")
     public Response addNewEnglishWord (@RequestBody Word word) {
 
-
-        System.out.println(word.getWord());
-        System.out.println(word.getTranslations());
-        System.out.println(word);
-
         return englishService.addWord(word);
     }
 
