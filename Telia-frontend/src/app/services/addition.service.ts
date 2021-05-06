@@ -10,11 +10,11 @@ import {Response} from '../common/response';
 })
 export class AdditionService {
 
-  private baseUrl = 'http://localhost:8080/api'
+  private baseUrl = 'https://whispering-headland-53395.herokuapp.com/api'
 
   constructor(private httpClient: HttpClient) { }
 
-  public addNewWord ( lang: string, word: Word) : Observable<any> {
+  public addNewWord ( lang: string, word: Word): Observable<any> {
 
     let url = "";
 

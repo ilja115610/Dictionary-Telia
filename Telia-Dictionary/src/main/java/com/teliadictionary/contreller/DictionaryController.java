@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.Set;
 
 @RestController
-@CrossOrigin("http://localhost:4200")
+@CrossOrigin("https://peaceful-basin-27081.herokuapp.com")
 @RequestMapping("/api")
 public class DictionaryController {
 

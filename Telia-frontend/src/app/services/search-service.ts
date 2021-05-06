@@ -10,7 +10,7 @@ import {map} from 'rxjs/operators';
 })
 export class SearchService {
 
-  private baseUrl = 'http://localhost:8080/api'
+  private baseUrl = 'https://whispering-headland-53395.herokuapp.com/api'
 
   constructor(private httpClient: HttpClient) { }
 

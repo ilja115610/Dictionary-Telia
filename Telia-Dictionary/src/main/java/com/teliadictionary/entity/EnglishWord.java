@@ -1,6 +1,8 @@
 package com.teliadictionary.entity;
 
 import com.fasterxml.jackson.annotation.*;
+import com.teliadictionary.entity.EstonianWord;
+
 import javax.persistence.*;
 import java.util.HashSet;
 import java.util.Set;

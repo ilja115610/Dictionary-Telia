@@ -4,7 +4,6 @@ package com.teliadictionary.repositoryTest;
 import com.teliadictionary.entity.EnglishWord;
 import com.teliadictionary.entity.EstonianWord;
 import com.teliadictionary.repository.EnglishWordRepository;
-import com.teliadictionary.repository.EstonianWordRepository;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.jdbc.AutoConfigureTestDatabase;
