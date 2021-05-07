@@ -30,15 +30,15 @@ public class EnglishWordService {
 
         EnglishWord newEnglishWord = new EnglishWord();
 
-        newEnglishWord.setWord(word.getWord());
+        newEnglishWord.setWord(word.getWord().toLowerCase());
         Set<EstonianWord> translations = new HashSet<>();
         word.getTranslations().forEach(w->{
 
-            if(alreadyExists(w)){
-                translations.add(estonianWordRepository.findEstonianWordByWord(w));
+            if(alreadyExists(w.toLowerCase())){
+                translations.add(estonianWordRepository.findEstonianWordByWord(w.toLowerCase()));
             }
             else {
-                translations.add(new EstonianWord(w));
+                translations.add(new EstonianWord(w.toLowerCase()));
             }
         });
         newEnglishWord.setTranslations(translations);
@@ -50,6 +50,8 @@ public class EnglishWordService {
 
 
     public Set<Word> findWord(String word) {
+
+        word = word.toLowerCase(Locale.ROOT);
 
         EnglishWord searchWord = englishWordRepository.findEnglishWordByWord(word);
 

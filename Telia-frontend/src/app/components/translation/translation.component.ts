@@ -40,13 +40,13 @@ export class TranslationComponent implements OnInit {
 
 
   onSubmit() {
-    this.word.word = this.searchWord.value;
+    this.word.word = this.searchWord.value.toLowerCase();
     if(this.searchFormGroup.invalid){
       this.searchFormGroup.markAllAsTouched();
       return false;
     }
-    this.search = this.searchWord.value;
-    this.searchService.getTranslation(this.searchWord.value,this.language.value).subscribe(
+    this.search = this.searchWord.value.toLowerCase();
+    this.searchService.getTranslation(this.searchWord.value.toLowerCase(),this.language.value).subscribe(
       data=>this.results = data
     );
     this.searchFormGroup.markAsUntouched();

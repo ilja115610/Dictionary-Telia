@@ -29,15 +29,15 @@ public class EstonianWordService {
 
         EstonianWord newEstonianWord = new EstonianWord();
 
-        newEstonianWord.setWord(word.getWord());
+        newEstonianWord.setWord(word.getWord().toLowerCase());
         Set<EnglishWord> translations = new HashSet<>();
         word.getTranslations().forEach(w->{
 
-            if(alreadyExists(w)){
-                translations.add(englishWordRepository.findEnglishWordByWord(w));
+            if(alreadyExists(w.toLowerCase())){
+                translations.add(englishWordRepository.findEnglishWordByWord(w.toLowerCase()));
             }
             else {
-                translations.add(new EnglishWord(w));
+                translations.add(new EnglishWord(w.toLowerCase()));
             }
 
         });
@@ -52,6 +52,8 @@ public class EstonianWordService {
 
 
     public Set<Word> findWord(String word) {
+
+        word = word.toLowerCase(Locale.ROOT);
 
         EstonianWord searchWord = estonianWordRepository.findEstonianWordByWord(word);
 

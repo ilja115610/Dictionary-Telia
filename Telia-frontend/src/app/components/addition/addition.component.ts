@@ -57,9 +57,9 @@ export class AdditionComponent implements OnInit {
       this.additionFormGroup.markAllAsTouched();
       return false;
     }
-    this.word.word = this.additionFormGroup.get('addWord').value;
+    this.word.word = this.additionFormGroup.get('addWord').value.toLowerCase();
     let arr = [];
-    <FormArray> this.additionFormGroup.get('translation')['controls'].forEach(v=>arr.push(v.value['translation']));
+    <FormArray> this.additionFormGroup.get('translation')['controls'].forEach(v=>arr.push(v.value['translation'].toLowerCase()));
     this.word.translations = arr;
     this.additionService.addNewWord(this.language.value,this.word).subscribe(data=>this.response = data);
     this.additionFormGroup.markAsUntouched();
