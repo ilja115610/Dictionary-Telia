@@ -15,6 +15,7 @@ User can add new words and their translations to the dictionary.
 
 All form inputs are validated.
 
+**See all available words in 'list_of_words' directory**
 
 #### Used Technologies and Tools:
 
